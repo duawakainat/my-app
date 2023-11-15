@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 const TodoItem = ({ todo, onDelete, onToggle, onEdit }) => {
   const [isEditing, setEditing] = useState(false);
   const [editedText, setEditedText] = useState(todo.text);
-
   const handleEdit = () => {
     if (isEditing) {
       onEdit(todo.id, editedText);

@@ -1,14 +1,19 @@
+// pages/index.js
 'use client'
 import React, { useState, useEffect } from 'react';
-import TodoList from '/TodoList';
-import TodoForm from '/TodoForm';
-import './globals.css'
+import TodoList from './TodoList/page';
+import TodoForm from './TodoForm/page';
+
 const Home = () => {
-  const initialTodos = JSON.parse(localStorage.getItem('todos'));
+  // Load todos from local storage on initial render
+  const initialTodos = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('todos')) || [] : [];
   const [todos, setTodos] = useState(initialTodos);
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    // Save todos to local storage whenever they change
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
   }, [todos]);
 
   const addTodo = (text) => {
@@ -36,10 +41,10 @@ const Home = () => {
   };
 
   return (
-    <div className=''>
+    <div>
       <h1>Todo App</h1>
-      <TodoForm className='inpot border-4 border-indigo-500/75' onAdd={addTodo} />
-      <TodoList className='w-[56]' todos={todos} onDelete={deleteTodo} onToggle={toggleTodo} onEdit={editTodo} />
+      <TodoForm onAdd={addTodo} />
+      <TodoList todos={todos} onDelete={deleteTodo} onToggle={toggleTodo} onEdit={editTodo} />
     </div>
   );
 };
