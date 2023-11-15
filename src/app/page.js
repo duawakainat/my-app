@@ -1,16 +1,13 @@
-// pages/index.js
 'use client'
 import React, { useState, useEffect } from 'react';
-import TodoList from './TodoList/page';
-import TodoForm from './TodoForm/page';
+import TodoForm from './component/TodoForm/page';
+import TodoForm from './component/TodoForm/page';
 
 const Home = () => {
-  // Load todos from local storage on initial render
   const initialTodos = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('todos')) || [] : [];
   const [todos, setTodos] = useState(initialTodos);
 
   useEffect(() => {
-    // Save todos to local storage whenever they change
     if (typeof window !== 'undefined') {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
