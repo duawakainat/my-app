@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import TodoForm from './component/TodoForm/page';
-import TodoForm from './component/TodoForm/page';
+import TodoForm from '../component/TodoForm';
+import TodoList from '../component/TodoList';
 
 const Home = () => {
   const initialTodos = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('todos')) || [] : [];

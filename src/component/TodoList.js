@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import TodoItem from '../TodoItem/page';
+import TodoItem from './TodoItem';
 const TodoList = ({ todos, onDelete, onToggle, onEdit }) => {
   return (
     <div>
