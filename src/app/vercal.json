@@ -1,0 +1,12 @@
+{
+    "version": 1,
+    "builds": [
+      { "src": "package.json", "use": "@versal/next" }
+    ],
+    "project": {
+      "name": "todo-app",
+      "description": "A simple todo app built with Next.js",
+      "type": "web"
+    }
+  }
+  
