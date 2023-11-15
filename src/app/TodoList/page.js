@@ -1,0 +1,20 @@
+'use client'
+import React from 'react';
+import TodoItem from '../TodoItem/page';
+const TodoList = ({ todos, onDelete, onToggle, onEdit }) => {
+  return (
+    <div>
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          onDelete={onDelete}
+          onToggle={onToggle}
+          onEdit={onEdit}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default TodoList;
