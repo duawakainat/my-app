@@ -4,7 +4,7 @@ import TodoList from './TodoList/page';
 import TodoForm from './TodoForm/page';
 import './globals.css'
 const Home = () => {
-  const initialTodos = JSON.parse(localStorage.getItem('todos')) || [];
+  const initialTodos = JSON.parse(localStorage.getItem('todos'));
   const [todos, setTodos] = useState(initialTodos);
 
   useEffect(() => {
